@@ -6,7 +6,6 @@ const ExpenseItem = ({ title, amount, date }) => {
     const [newTitle, setNewTitle] = useState(title);
     const clickHandler = () => {
         setNewTitle("Updated Title")
-        console.log(newTitle);
     }
     return (
         <Card className="expense-item">
