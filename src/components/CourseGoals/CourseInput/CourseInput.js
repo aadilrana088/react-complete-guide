@@ -12,7 +12,11 @@ const CourseInput = props => {
 
   const formSubmitHandler = event => {
     event.preventDefault();
-    props.onAddGoal(enteredValue);
+    if(enteredValue) {
+      props.onAddGoal(enteredValue);
+    } else {
+      alert("please enter any value")
+    }
   };
 
   return (
