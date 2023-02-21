@@ -29,7 +29,7 @@ function App() {
       })
     }
     return (
-        <div>
+        <>
             <AddUsers onAddUser={onAddUser} />
             {/* <UsersList users={users} onDelete={deleteHandler} /> */}
             {users.length > 0 ? (
@@ -39,7 +39,7 @@ function App() {
                     <p>No Username and password exist</p>
                 </Card>
             )}
-        </div>
+        </>
     );
 }
 
