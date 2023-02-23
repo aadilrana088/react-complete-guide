@@ -8,3 +8,8 @@ Sat Feb 18 2023 00:41:30
 
 72. Quiz 3: Learning Check: Outputting Lists & Conditional Content Start 72. Module Resources 
 Sat Feb 18 2023 20:24:26 GMT+0530 (India Standard Time)
+
+
+Section 10: Advanced: Handling Side Effects, Using Reducers & Using the Context API
+129. Module Resources => Fri Feb 24 2023 01:15:30 GMT+0530 (India Standard Time)
+https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25599290#overview
