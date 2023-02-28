@@ -23,11 +23,13 @@ function App() {
         });
     };
     const deleteHandler = (deleteId) => {
-      setUsers((prevUsers) => {
-        const  updateusers = prevUsers.filter(item => item.id !== deleteId)
-        return updateusers
-      })
-    }
+        setUsers((prevUsers) => {
+            const updateusers = prevUsers.filter(
+                (item) => item.id !== deleteId
+            );
+            return updateusers;
+        });
+    };
     return (
         <>
             <AddUsers onAddUser={onAddUser} />
@@ -35,7 +37,15 @@ function App() {
             {users.length > 0 ? (
                 <UsersList users={users} onDelete={deleteHandler} />
             ) : (
-                <Card style={{textAlign: "center", padding: "10px",width: "500px", margin: "0 auto", color: "red"}}>
+                <Card
+                    style={{
+                        textAlign: 'center',
+                        padding: '10px',
+                        width: '500px',
+                        margin: '0 auto',
+                        color: 'red',
+                    }}
+                >
                     <p>No Username and password exist</p>
                 </Card>
             )}
