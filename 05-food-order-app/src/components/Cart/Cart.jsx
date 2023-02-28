@@ -7,7 +7,7 @@ import CartContext from '../../store/cart-context';
 
 const Cart = (props) => {
     const cartCtx = useContext(CartContext);
-    const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+    const totalAmount = `₹${cartCtx.totalAmount.toFixed(2)}`;
     const hasItems = cartCtx.items.length > 0;
     const cartItemRemoveHandler = (id) => {
         cartCtx.removeItem(id);
@@ -34,7 +34,7 @@ const Cart = (props) => {
 
     return (
         <Modal onClose={props.onClose}>
-            {cartItems}
+            {cartCtx.items.length > 0 ? cartItems : <p>There are no Items in card, please add some item.</p>}
             <div className={classes.total}>
                 <span>Total Amount</span>
                 <span>{totalAmount}</span>
