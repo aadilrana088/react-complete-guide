@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import './App.css';
 import DemoList from './components/Demo/DemoList';
@@ -21,7 +21,7 @@ function App() {
     const changeTitleHandler = useCallback(() => {
         setListTitle('Updated Title');
     }, []);
-    const listItems = [5, 3, 1, 10, 9];
+    const listItems = useMemo(() => [5, 3, 1, 10, 9], []);
     return (
         <div className="app">
             {/* <h1>Hi there!</h1>
