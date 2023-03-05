@@ -18,7 +18,7 @@ const Tasks = (props) => {
   let content = taskList;
 
   if (props.error) {
-    content = <button onClick={props.onFetch}>Try again</button>;
+    content = <button onClick={props.onFetch}>Try again {props.error}</button>;
   }
 
   if (props.loading) {
