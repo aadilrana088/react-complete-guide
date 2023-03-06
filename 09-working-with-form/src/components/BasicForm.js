@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import useInput from '../hooks/use-input';
 
 const BasicForm = (props) => {
     const isNotEmpty = (value) => value.trim() !== '';
     const isEmail = (value) => value.includes('@');
+    const [formData, setFormData] = useState('')
     const {
         value: fname,
         isValid: fnameIsValid,
@@ -37,6 +39,7 @@ const BasicForm = (props) => {
             return;
         }
         console.log('Submitted!');
+        setFormData(`First Name: ${fname}, Last Name: ${lname}, Email: ${email}`)
         console.log(fname, lname, email);
         resetFname();
         resetLname();
@@ -94,6 +97,7 @@ const BasicForm = (props) => {
                     <p className="error-text">Please enter proper mail</p>
                 )}
             </div>
+            <h4>{formData}</h4>
             <div className="form-actions">
                 <button disabled={!formIsvalid}>Submit</button>
             </div>

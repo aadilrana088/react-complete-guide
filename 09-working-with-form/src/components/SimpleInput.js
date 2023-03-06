@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import useInput from '../hooks/use-input';
 const SimpleInput = (props) => {
+    const [formData, setFormData] = useState('')
     const {
         value: enteredName,
         isValid: nameIsvalid,
@@ -25,8 +27,8 @@ const SimpleInput = (props) => {
         if (!enteredName && !enteredEmail) {
             return;
         }
-        console.log(enteredName);
-        console.log(enteredEmail);
+        console.log(enteredName, enteredEmail);
+        setFormData(`Name: ${enteredName}, Email: ${enteredEmail}`)
         resetNameInput();
         resetEmailInput();
     };
@@ -62,6 +64,7 @@ const SimpleInput = (props) => {
                     <p className="error-text">Please enter valid Email</p>
                 )}
             </div>
+            <h4>{formData}</h4>
             <div className="form-actions">
                 <button disabled={!formIsvalid}>Submit</button>
             </div>
