@@ -31,8 +31,9 @@ const SimpleInput = (props) => {
         console.log(enteredName);
         resetNameInput();
         setEmail('');
+        setEmailTouched(false);
     };
-    const nameInputClass = nameIsvalid
+    const nameInputClass = nameHasError
         ? 'form-control invalid'
         : 'form-control';
     const emailInputClass = emailInputIsValid
