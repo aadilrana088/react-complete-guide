@@ -55,7 +55,10 @@ const AvailableMeals = () => {
             setMeals(loadedeMeals);
             setIsLoading(false);
         };
-        fetchMeals().catch((error) => setHttpError(error.message));
+        fetchMeals().catch((error) => {
+            setIsLoading(false);
+            setHttpError(error.message);
+        });
     }, []);
     if (isLoading) {
         return (
@@ -64,12 +67,12 @@ const AvailableMeals = () => {
             </section>
         );
     }
-    if(httpError) {
+    if (httpError) {
         return (
             <section className={classes.MealsError}>
                 <p>{httpError}</p>
             </section>
-        )
+        );
     }
     const mealsList = meals.map((meal) => (
         <MealItem
