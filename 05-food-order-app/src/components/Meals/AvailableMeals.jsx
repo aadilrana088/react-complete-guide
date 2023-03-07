@@ -32,6 +32,7 @@ import MealItem from './MealItem/MealItem';
 
 const AvailableMeals = () => {
     const [meals, setMeals] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         const fetchMeals = async () => {
             const response = await fetch(
@@ -48,11 +49,18 @@ const AvailableMeals = () => {
                 });
             }
             setMeals(loadedeMeals);
+            setIsLoading(false);
         };
         fetchMeals();
     }, []);
-
-    const mealsList = meals && meals.map((meal) => (
+    if (isLoading) {
+        return (
+            <section className="global_loader">
+                <img src="/images/loader.svg" alt="" />
+            </section>
+        );
+    }
+    const mealsList = meals.map((meal) => (
         <MealItem
             key={meal.id}
             name={meal.name}
