@@ -35,7 +35,7 @@ const Cart = (props) => {
         );
         setIsSubmitting(false);
         setDidSubmit(true);
-        cartCtx.clearItem()
+        cartCtx.clearItem();
     };
 
     const cartItems = (
@@ -52,7 +52,21 @@ const Cart = (props) => {
             ))}
         </ul>
     );
-
+    const modalActions = (
+        <div className={classes.actions}>
+            <button className={classes['button--alt']} onClick={props.onClose}>
+                Close
+            </button>
+            {hasItems && (
+                <button
+                    className={classes.button}
+                    onClick={() => setIsCheckout(true)}
+                >
+                    Order
+                </button>
+            )}
+        </div>
+    );
     const cartModalContent = (
         <>
             {cartCtx.items.length > 0 ? (
@@ -70,22 +84,7 @@ const Cart = (props) => {
                     onConfirm={submitOrderHandler}
                 />
             )}
-            <div className={classes.actions}>
-                <button
-                    className={classes['button--alt']}
-                    onClick={props.onClose}
-                >
-                    Close
-                </button>
-                {hasItems && (
-                    <button
-                        className={classes.button}
-                        onClick={() => setIsCheckout(true)}
-                    >
-                        Order
-                    </button>
-                )}
-            </div>
+            {!isCheckout && modalActions}
         </>
     );
     const isSubmittingModalContent = <p>Sending order data...</p>;
