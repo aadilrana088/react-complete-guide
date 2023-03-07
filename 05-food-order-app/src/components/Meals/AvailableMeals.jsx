@@ -33,12 +33,16 @@ import MealItem from './MealItem/MealItem';
 const AvailableMeals = () => {
     const [meals, setMeals] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [httpError, setHttpError] = useState();
     useEffect(() => {
         const fetchMeals = async () => {
             const response = await fetch(
                 'https://react-meals-ffc27-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json'
             );
             const responseData = await response.json();
+            if (!response.ok) {
+                throw new Error('Something went wrong');
+            }
             const loadedeMeals = [];
             for (const key in responseData) {
                 loadedeMeals.push({
@@ -51,7 +55,7 @@ const AvailableMeals = () => {
             setMeals(loadedeMeals);
             setIsLoading(false);
         };
-        fetchMeals();
+        fetchMeals().catch((error) => setHttpError(error.message));
     }, []);
     if (isLoading) {
         return (
@@ -59,6 +63,13 @@ const AvailableMeals = () => {
                 <img src="/images/loader.svg" alt="" />
             </section>
         );
+    }
+    if(httpError) {
+        return (
+            <section className={classes.MealsError}>
+                <p>{httpError}</p>
+            </section>
+        )
     }
     const mealsList = meals.map((meal) => (
         <MealItem
