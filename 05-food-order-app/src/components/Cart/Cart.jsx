@@ -7,7 +7,7 @@ import CartContext from '../../store/cart-context';
 import Checkout from './Checkout';
 
 const Cart = (props) => {
-    const [isCheckout, setIsCheckout] = useState(false)
+    const [isCheckout, setIsCheckout] = useState(false);
     const cartCtx = useContext(CartContext);
     const totalAmount = `₹${cartCtx.totalAmount.toFixed(2)}`;
     const hasItems = cartCtx.items.length > 0;
@@ -17,6 +17,19 @@ const Cart = (props) => {
 
     const cartItemAddHandler = (item) => {
         cartCtx.addItem(item);
+    };
+
+    const submitOrderHandler = (userData) => {
+        fetch(
+            'https://react-meals-ffc27-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json',
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    users: userData,
+                    orderedItems: cartCtx.items,
+                }),
+            }
+        );
     };
 
     const cartItems = (
@@ -36,12 +49,21 @@ const Cart = (props) => {
 
     return (
         <Modal onClose={props.onClose}>
-            {cartCtx.items.length > 0 ? cartItems : <p>There are no Items in card, please add some item.</p>}
+            {cartCtx.items.length > 0 ? (
+                cartItems
+            ) : (
+                <p>There are no Items in card, please add some item.</p>
+            )}
             <div className={classes.total}>
                 <span>Total Amount</span>
                 <span>{totalAmount}</span>
             </div>
-            {isCheckout && <Checkout />}
+            {isCheckout && (
+                <Checkout
+                    onCancel={() => setIsCheckout(false)}
+                    onConfirm={submitOrderHandler}
+                />
+            )}
             <div className={classes.actions}>
                 <button
                     className={classes['button--alt']}
@@ -49,7 +71,14 @@ const Cart = (props) => {
                 >
                     Close
                 </button>
-                {hasItems && <button className={classes.button} onClick={() => setIsCheckout(true)}>Order</button>}
+                {hasItems && (
+                    <button
+                        className={classes.button}
+                        onClick={() => setIsCheckout(true)}
+                    >
+                        Order
+                    </button>
+                )}
             </div>
         </Modal>
     );
