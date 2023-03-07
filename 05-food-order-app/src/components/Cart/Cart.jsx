@@ -8,6 +8,8 @@ import Checkout from './Checkout';
 
 const Cart = (props) => {
     const [isCheckout, setIsCheckout] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [didSubmit, setDidSubmit] = useState(false);
     const cartCtx = useContext(CartContext);
     const totalAmount = `₹${cartCtx.totalAmount.toFixed(2)}`;
     const hasItems = cartCtx.items.length > 0;
@@ -19,8 +21,9 @@ const Cart = (props) => {
         cartCtx.addItem(item);
     };
 
-    const submitOrderHandler = (userData) => {
-        fetch(
+    const submitOrderHandler = async (userData) => {
+        setIsSubmitting(true);
+        await fetch(
             'https://react-meals-ffc27-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json',
             {
                 method: 'POST',
@@ -30,6 +33,8 @@ const Cart = (props) => {
                 }),
             }
         );
+        setIsSubmitting(false);
+        setDidSubmit(true);
     };
 
     const cartItems = (
@@ -47,8 +52,8 @@ const Cart = (props) => {
         </ul>
     );
 
-    return (
-        <Modal onClose={props.onClose}>
+    const cartModalContent = (
+        <>
             {cartCtx.items.length > 0 ? (
                 cartItems
             ) : (
@@ -80,6 +85,24 @@ const Cart = (props) => {
                     </button>
                 )}
             </div>
+        </>
+    );
+    const isSubmittingModalContent = <p>Sending order data...</p>;
+    const didSubmitModalContent = (
+        <>
+            <p>Successfully sent the order!</p>
+            <div className={classes.actions}>
+                <button className={classes.button} onClick={props.onClose}>
+                    Close
+                </button>
+            </div>
+        </>
+    );
+    return (
+        <Modal onClose={props.onClose}>
+            {!isSubmitting && !didSubmit && cartModalContent}
+            {isSubmitting && isSubmittingModalContent}
+            {!isSubmitting && didSubmit && didSubmitModalContent}
         </Modal>
     );
 };
