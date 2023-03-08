@@ -1,0 +1,5 @@
+npm iinit -y 
+
+npm install redux
+
+node redux-demo.js
