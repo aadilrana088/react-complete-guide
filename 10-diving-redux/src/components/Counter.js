@@ -2,26 +2,49 @@ import { useDispatch, useSelector } from 'react-redux';
 import classes from './Counter.module.css';
 
 const Counter = () => {
-  const counter = useSelector(state => state.counter);
-  const dispatch = useDispatch();
-  const toggleCounterHandler = () => {
-  };
+    const counter = useSelector((state) => state.counter);
+    const showCounter = useSelector((state) => state.showCounter);
+    const dispatch = useDispatch();
+    const toggleCounterHandler = () => {
+        dispatch({ type: 'toggleCounter' });
+    };
 
-  return (
-    <main className={classes.counter}>
-      <h1>Redux Counter</h1>
-      <div className={classes.value}>Counter Value: {counter}</div>
-      <div>
-        <button onClick={() => dispatch({type: 'increment'})}>Increament</button>
-        <button onClick={() => dispatch({type: 'decrement'})}>Decreament</button>
-      </div>
-      <div>
-        <button onClick={() => dispatch({type: 'incrementby5', amount: 5})}>Increament By 5</button>
-        <button onClick={() => dispatch({type: 'decrementby5', amount: 5})}>Decreament By 5</button>
-      </div>
-      <button onClick={toggleCounterHandler}>Toggle Counter</button>
-    </main>
-  );
+    return (
+        <main className={classes.counter}>
+            <h1>Redux Counter</h1>
+            {showCounter && (
+                <div className={classes.toggleCounter}>
+                    <div className={classes.value}>
+                        Counter Value: {counter}
+                    </div>
+                    <div>
+                        <button onClick={() => dispatch({ type: 'increment' })}>
+                            Increament
+                        </button>
+                        <button onClick={() => dispatch({ type: 'decrement' })}>
+                            Decreament
+                        </button>
+                        <button
+                            onClick={() =>
+                                dispatch({ type: 'incrementby5', amount: 5 })
+                            }
+                        >
+                            Increament By 5
+                        </button>
+                        <button
+                            onClick={() =>
+                                dispatch({ type: 'decrementby5', amount: 5 })
+                            }
+                        >
+                            Decreament By 5
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            <button onClick={toggleCounterHandler}>Toggle Counter</button>
+        </main>
+    );
 };
 
 export default Counter;
