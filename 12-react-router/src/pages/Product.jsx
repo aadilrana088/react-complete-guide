@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Card from '../components/UI/Card';
 
 const Product = () => {
     return (
-        <div>
+        <Card>
             <p>Product page</p>
-            <Link to="/home">Home page</Link>
-            <br />
-            <Link to="/welcome">Welcome page</Link>
-        </div>
+        </Card>
     );
 };
 
