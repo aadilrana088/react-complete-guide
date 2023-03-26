@@ -47,5 +47,9 @@ Section 18: Diving into Redux (An Alternative To The Context API)
 https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25600230#overview
 
 Section 19: Advanced Redux
-253. Refresher / Practice: Part 2/2   =>    Sun Mar 12 2023 21:22:28 GMT+0530 (India Standard Time)
-https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25600342#overview
+265. Module Resources => Mon Mar 13 2023 20:11:52 GMT+0530 (India Standard Time)
+https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25600386#overview
+
+Section 20: Building a Multi-Page SPA with React Router
+309. Old Lectures => Sun Mar 26 2023 20:00:16 GMT+0530 (India Standard Time)
+https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/35615104#overview
