@@ -24,14 +24,16 @@ import EditEventPage from './pages/EditEventPage';
 import Error from './pages/Error';
 import EventDetailPage, {
     loader as eventDetailLoader,
-    action as deleteActionEvent
+    action as deleteActionEvent,
 } from './pages/EventDetailPage';
 import EventsPage, { loader as eventLoader } from './pages/Events';
 import EventsRoot from './pages/EventsRoot';
 import HomePage from './pages/HomePage';
 import NewEventPage from './pages/NewEventPage';
 import Roots from './pages/Roots';
-import {action as manipulateEventAction} from "./components/EventForm" 
+import { action as manipulateEventAction } from './components/EventForm';
+import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -56,12 +58,12 @@ const router = createBrowserRouter([
                             {
                                 index: true,
                                 element: <EventDetailPage />,
-                                action: deleteActionEvent
+                                action: deleteActionEvent,
                             },
                             {
                                 path: 'edit',
                                 element: <EditEventPage />,
-                                action: manipulateEventAction
+                                action: manipulateEventAction,
                             },
                         ],
                     },
@@ -71,6 +73,11 @@ const router = createBrowserRouter([
                         action: manipulateEventAction,
                     },
                 ],
+            },
+            {
+                path: 'newsletter',
+                element: <NewsletterPage />,
+                action: newsletterAction,
             },
         ],
     },
