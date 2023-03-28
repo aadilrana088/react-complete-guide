@@ -37,11 +37,14 @@ import AuthenticationPage, {
     action as authAction,
 } from './pages/Authentication';
 import { action as logoutAction } from './pages/Logout';
+import { tokenLoader } from './utils/auth';
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Roots />,
         errorElement: <Error />,
+        id: 'root',
+        loader: tokenLoader,
         children: [
             { index: true, element: <HomePage /> },
             {
