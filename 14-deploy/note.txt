@@ -17,4 +17,4 @@ What do you want to use as your public directory? build
 ? Set up automatic builds and deploys with GitHub? No
 ? File build/index.html already exists. Overwrite? No
 
-
+URL: https://react-deployment-demo-ccb33.web.app/
