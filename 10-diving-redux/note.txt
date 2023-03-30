@@ -1,0 +1,10 @@
+npm iinit -y 
+
+npm install redux
+
+node redux-demo.js
+
+
+-----New Project-----
+npm install redux react-redux
+npm install @reduxjs/toolkit
