@@ -1,6 +1,0 @@
-Create  account in firebase
-
-Create project and name it "react-http";
->> Use realtime database >> create database
->> test mode
-    
