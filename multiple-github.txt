@@ -1,0 +1,23 @@
+ssh-keygen -t rsa -C "aadilrana088@gmail.com" -f "aadilrana088"
+
+ssh-keygen -t rsa -C "epochbrokers2@gmail.com" -f "epochbrokers2"
+
+=> for personal account
+git config user.email "aadilrana088@gmail.com"
+git config user.name "Mohd Aadil Rana"
+
+=> for office account
+git config user.email "epochbrokers2@gmail.com"
+git config user.name "Aadil Rana"
+
+=> Remove the Existing Remote
+git remote remove origin
+
+
+For adding to remote (personal)
+git remote add origin git@github.com-aadilrana088:aadilrana088/react-complete-guide.git
+git@github.com:aadilrana088/react-complete-guide.git
+
+For adding to remote (office)
+git remote add origin git@github.com-epochbrokers2:EIBPL/pl.git
+git@github.com:EIBPL/pl.git
