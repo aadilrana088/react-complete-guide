@@ -2,7 +2,7 @@ import { NavLink, useRouteLoaderData } from 'react-router-dom';
 import classes from './EventsNavigation.module.css';
 
 function EventsNavigation() {
-    const token = useRouteLoaderData();
+    const token = useRouteLoaderData("root");
     return (
         <header className={classes.header}>
             <nav>
