@@ -32,3 +32,5 @@ git clone git@github.com-{your-username}:{owner-user-name}/{the-repo-name}.git\
 [e.g.] git clone git@github.com-rahul-personal:rahul-personal/TestRepo.git
 
 #### Now you can use push and pull commmand.
+
+Reference: https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3
