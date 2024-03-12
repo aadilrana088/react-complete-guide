@@ -27,4 +27,8 @@ Github SSh URL: git@github.com:aadilrana088/react-complete-guide.git
 git remote add origin git@github.com-epochbrokers2:EIBPL/pl.git\
 Github SSh URL: git@github.com:EIBPL/pl.git
 
+### For adding any account
+git clone git@github.com-{your-username}:{owner-user-name}/{the-repo-name}.git\
+[e.g.] git clone git@github.com-rahul-personal:rahul-personal/TestRepo.git
+
 #### Now you can use push and pull commmand.
