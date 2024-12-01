@@ -8,6 +8,14 @@ ssh-keygen -t rsa -C "aadilrana088@gmail.com" -f "aadilrana088"
 ### Generate key for office
 ssh-keygen -t rsa -C "epochbrokers2@gmail.com" -f "epochbrokers2"
 
+### Save public key to github keys.
+After generating keys, copy `.pub` key to github keys (https://github.com/settings/keys)
+  #### Add SSH keys to SSH Agent
+    ssh-add ~/.ssh/aadilranajmi
+  if error shows like: `Could not open a connection to your authentication agent.`, then run command
+    eval `ssh-agent -s`
+    then run above command: `ssh-add ~/.ssh/aadilranajmi`
+
 ### set users email and name for personal account
 git config user.email "aadilrana088@gmail.com"\
 git config user.name "Mohd Aadil Rana"
